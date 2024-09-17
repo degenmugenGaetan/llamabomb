@@ -23,10 +23,10 @@ export async function sendScore(score) {
 
     const signer = createDataItemSigner(window.arweaveWallet);
     const messageId = await message({
-        process: 'q6q0mjZ2UYUpdDYmxemVTyjKf6176F2Sse3N7uAW3D0',
+        process: 'RTlsuLH1EJJaOeFPmlJ1tmaWEIKL0Nfkia5MU-4rQIw',
         signer: signer,
         tags: [
-            { name: 'Action', value: 'SetScore' }
+            { name: 'Action', value: 'AddGame' }
         ],
         data: score.toString(),
     });
@@ -34,24 +34,6 @@ export async function sendScore(score) {
     return messageId;
 }
 
-export async function sendMessageSave(data) {
-    const walletAddress = localStorage.getItem('walletAddress');
-    if (!walletAddress) {
-        throw new Error('Wallet not connected');
-    }
-
-    const signer = createDataItemSigner(window.arweaveWallet);
-    const messageId = await message({
-        process: 'q6q0mjZ2UYUpdDYmxemVTyjKf6176F2Sse3N7uAW3D0',
-        signer: signer,
-        tags: [
-            { name: 'Action', value: 'SetMessages' }
-        ],
-        data: data,
-    });
-
-    return messageId;
-}
 
 export async function sendMessageLoad() {
     const walletAddress = localStorage.getItem('walletAddress');
@@ -63,7 +45,7 @@ export async function sendMessageLoad() {
 
     try {
         const messageId = await message({
-            process: 'q6q0mjZ2UYUpdDYmxemVTyjKf6176F2Sse3N7uAW3D0',
+            process: 'RTlsuLH1EJJaOeFPmlJ1tmaWEIKL0Nfkia5MU-4rQIw',
             signer: signer,
             tags: [
                 { name: 'Action', value: 'GetMessages' }
@@ -71,7 +53,7 @@ export async function sendMessageLoad() {
         });
         const { Messages, Error } = await result({
             message: messageId,
-            process: 'q6q0mjZ2UYUpdDYmxemVTyjKf6176F2Sse3N7uAW3D0',
+            process: 'RTlsuLH1EJJaOeFPmlJ1tmaWEIKL0Nfkia5MU-4rQIw',
         });
         if (Error) {
             alert("There was an error loading data:" + Error);

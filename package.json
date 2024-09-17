@@ -5,7 +5,7 @@
 		"name": "default"
 	},
 	"scripts": {
-		"build": "tsc -w",
+		"build": "tsc",
 		"lint": "npx eslint --fix ./src/**/*.{js,ts}"
 	},
 	"main": "./src/index.js",

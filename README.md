@@ -11,10 +11,10 @@
 Default controls are: `Arrow Keys` to move, `Space` to place bomb
 
 ##  TODO
-  use llama image instead of bomberman
-  fix minor bug
-  better ui for ao interaction
-  add a leaderboard
+  use llama image instead of bomberman;
+  fix minor bug;
+  better ui for ao interaction;
+  add a leaderboard;
   nft of score
 
 ## GAME

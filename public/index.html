@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title> LlamaBomb</title>
+		<style>
+			html,
+			body {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+			}
+
+			body {
+				display: flex;
+			}
+
+			body,
+			canvas {
+				background-color: black;
+			}
+
+			canvas {
+				flex-shrink: 1;
+				width: 100%;
+				object-fit: contain;
+				image-rendering: crisp-edges;
+				image-rendering: pixelated;
+				margin-top: 50px;
+			}
+
+			img,
+			audio {
+				display: none;
+			}
+
+			/* ************************************* */
+			#navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        #walletStatus, #scoreDisplay {
+            margin-right: 10px;
+        }
+
+		</style>
+		<script type="importmap">
+			{
+				"imports": {
+					"engine/": "./src/engine/",
+					"game/": "./src/game/",
+					"@permaweb/aoconnect": "https://cdn.jsdelivr.net/npm/@permaweb/aoconnect@0.0.59/dist/browser.min.js"
+				}
+			}
+		</script>
+
+			<script type="module" src="./build/ao.js"></script>
+		<script type="module" src="./build/index.js"></script>
+	</head>
+	<body>
+		<div id="navbar">
+			<div id="walletSection">
+					<button id="connectBtn">Connect Wallet</button>
+					<span id="walletStatus">Not connected</span>
+			</div>
+			<div id="scoreSection" style="display: none;">
+					<span id="scoreDisplay"></span>
+					<button id="sendScoreBtn">Send Score</button>
+			</div>
+	</div>
+		<img id="title" src="./images/title.png" />
+		<img id="bomberman" src="./images/bomberman.png" />
+		<img id="tiles" src="./images/tiles.png" />
+		<img id="bomb" src="./images/bomb.png" />
+		<img id="panel" src="./images/panel.png" />
+		<img id="font" src="./images/font.png" />
+		<img id="enemies" src="./images/enemies.png" />
+		<img id="pickups" src="./images/pickups.png" />
+
+		<audio id="bgm" src="./sound/bgm.x68000.ogg" preload="auto" loop></audio>
+		<audio id="title" src="./sound/title.x68000.ogg" preload="auto"></audio>
+		<audio
+			id="stage-complete"
+			src="./sound/stage-complete.x68000.ogg"
+			preload="auto"
+		></audio>
+		<audio id="walk" src="./sound/walk.ogg" preload="auto"></audio>
+		<audio id="death" src="./sound/death.ogg" preload="auto"></audio>
+		<audio id="bomb-place" src="./sound/bomb-place.ogg" preload="auto"></audio>
+		<audio
+			id="bomb-explode"
+			src="./sound/bomb-explode.ogg"
+			preload="auto"
+		></audio>
+		<audio id="pickup" src="./sound/pickup.ogg" preload="auto"></audio>
+		<audio id="exit-open" src="./sound/exit-open.ogg" preload="auto"></audio>
+		<audio id="menu" src="./sound/menu.ogg" preload="auto"></audio>
+		<audio
+			id="menu-select"
+			src="./sound/menu-select.ogg"
+			preload="auto"
+		></audio>
+	</body>
+</html>
